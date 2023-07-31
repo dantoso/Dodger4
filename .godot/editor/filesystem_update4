@@ -1,0 +1,9 @@
+res://Scenes/Nodes/StateMachine/StateMachine.gd
+res://Scenes/Nodes/StateMachine/State.gd
+res://Scenes/MainScene.tscn
+res://Scenes/Nodes/GameObjects/TestWalker.tscn
+res://Scenes/Nodes/StateMachine/StateMachine.tscn
+res://Scenes/Nodes/GameObjects/TestWalker/TestWalker.gd
+res://Scenes/Nodes/GameObjects/TestWalker/TestWalker.tscn
+res://Scenes/Nodes/GameObjects/TestWalker/States/IdleState.gd
+res://Scenes/Nodes/GameObjects/TestWalker/States/WalkState.gd

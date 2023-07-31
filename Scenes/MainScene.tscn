@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx7mnno2gfble"]
+
+[ext_resource type="PackedScene" uid="uid://bdaadwwpi8wkt" path="res://Scenes/Nodes/GameObjects/TestWalker/TestWalker.tscn" id="1_xodl5"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="TestWalker" parent="." instance=ExtResource("1_xodl5")]
+position = Vector2(67, 48)
