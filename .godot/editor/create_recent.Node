@@ -1,6 +1,5 @@
-WalkState
-IdleState
-CollisionShape2D
-StateMachine
-CharacterBody2D
 Node
+State
+CollisionShape2D
+CharacterBody2D
+StateMachine

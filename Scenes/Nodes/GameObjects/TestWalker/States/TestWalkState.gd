@@ -1,5 +1,5 @@
 extends State
-class_name IdleState
+class_name TestWalkState
 
 @export var character: CharacterBody2D
 var timer: float
@@ -9,11 +9,9 @@ func enter() -> void:
 
 func update(delta: float) -> void:
 	if timer > 0:
-		print(self.name + ": " + "idling")
 		timer -= delta
 	else:
-		print(self.name + ": " + "changing")
-		Transitioned.emit("WalkState")
+		Transitioned.emit("IdleState")
 
 func physicsUpdate(delta: float) -> void:
-	character.velocity = Vector2.ZERO
+	character.velocity.x = 50

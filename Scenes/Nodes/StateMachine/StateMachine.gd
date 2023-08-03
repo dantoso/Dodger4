@@ -5,6 +5,9 @@ class_name StateMachine
 var states: Dictionary = {}
 
 func _ready() -> void:
+	currentState.Transitioned.connect(onStateTransition)
+	currentState.enter()
+	
 	for child in get_children():
 		if child is State:
 			states[child.name.to_lower()] = child
@@ -21,7 +24,6 @@ func _physics_process(delta: float) -> void:
 
 
 func onStateTransition(newStateName: String):
-	print("transitioning")
 	if !currentState:
 		return
 	
@@ -33,6 +35,6 @@ func onStateTransition(newStateName: String):
 	currentState.Transitioned.disconnect(onStateTransition)
 	currentState.exit()
 	
-	currentState.Transitioned.connect(onStateTransition)
+	newState.Transitioned.connect(onStateTransition)
 	newState.enter()
 	currentState = newState

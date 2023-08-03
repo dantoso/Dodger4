@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TestWalker/TestWalker.gd" id="1_4yvgh"]
 [ext_resource type="Script" path="res://Scenes/Nodes/StateMachine/StateMachine.gd" id="1_pjdl0"]
-[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TestWalker/States/IdleState.gd" id="3_ew5sj"]
-[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TestWalker/States/WalkState.gd" id="4_vypg8"]
+[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TestWalker/States/TestIdleState.gd" id="3_e1x5q"]
+[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TestWalker/States/TestWalkState.gd" id="4_5pvhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4wr1"]
 size = Vector2(34.25, 31.5)
@@ -16,11 +16,11 @@ script = ExtResource("1_pjdl0")
 currentState = NodePath("IdleState")
 
 [node name="IdleState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
-script = ExtResource("3_ew5sj")
+script = ExtResource("3_e1x5q")
 character = NodePath("../..")
 
 [node name="WalkState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
-script = ExtResource("4_vypg8")
+script = ExtResource("4_5pvhx")
 character = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
