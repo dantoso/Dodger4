@@ -1,5 +1,6 @@
+CollisionShape2D
+TileMap
 Node
 State
-CollisionShape2D
 CharacterBody2D
 StateMachine
