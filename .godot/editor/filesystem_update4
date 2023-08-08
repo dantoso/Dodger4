@@ -1,5 +1,8 @@
-res://Scenes/MainScene.tscn
 res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.tscn
 res://Scenes/Nodes/GameObjects/TestWalker/TestWalker.tscn
 res://Scenes/Nodes/StateMachine/StateMachine.tscn
+res://Scenes/MainScene.tscn
+res://Scenes/Nodes/GameObjects/TogglePlayer/JumpState.gd
+res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd
 res://Scenes/Nodes/GameObjects/TogglePlayer/RunState.gd
+res://Scenes/Nodes/GameObjects/TogglePlayer/FallState.gd

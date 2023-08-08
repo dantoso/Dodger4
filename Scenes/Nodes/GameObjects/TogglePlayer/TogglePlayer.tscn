@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6bddseqnb2dg"]
+[gd_scene load_steps=7 format=3 uid="uid://b6bddseqnb2dg"]
 
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd" id="1_5nv1w"]
 [ext_resource type="PackedScene" uid="uid://xe6j8hs5lftc" path="res://Scenes/Nodes/StateMachine/StateMachine.tscn" id="2_gcud3"]
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/RunState.gd" id="3_7ac8k"]
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/JumpState.gd" id="4_ain3q"]
+[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/FallState.gd" id="5_bvl67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ikqw"]
 
@@ -11,7 +12,7 @@
 script = ExtResource("1_5nv1w")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("currentState") instance=ExtResource("2_gcud3")]
-currentState = NodePath("RunState")
+currentState = NodePath("FallState")
 
 [node name="RunState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
 script = ExtResource("3_7ac8k")
@@ -19,6 +20,10 @@ character = NodePath("../..")
 
 [node name="JumpState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
 script = ExtResource("4_ain3q")
+character = NodePath("../..")
+
+[node name="FallState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("5_bvl67")
 character = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
