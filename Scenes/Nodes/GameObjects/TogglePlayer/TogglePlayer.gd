@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name TogglePlayer
 
-const maxSpeed: = Vector2(300, 1000)
+const maxSpeed: = Vector2(200, 1000)
 const acceleration: = 600.0
 const jumpSpeed: = -500.0
 

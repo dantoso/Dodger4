@@ -9,7 +9,6 @@ func enter() -> void:
 
 func update(delta: float) -> void:
 	if character.is_on_floor():
-		print("FLOOR")
 		Transitioned.emit("RunState")
 
 
