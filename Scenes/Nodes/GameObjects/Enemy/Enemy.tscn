@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcmr40poe7m3r"]
+
+[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/Enemy/Enemy.gd" id="1_ym4ye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gk3o1"]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_ym4ye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gk3o1")
+debug_color = Color(0.976471, 0.14902, 0, 0.419608)

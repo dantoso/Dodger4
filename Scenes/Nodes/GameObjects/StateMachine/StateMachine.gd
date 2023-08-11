@@ -2,15 +2,10 @@ extends Node
 class_name StateMachine
 
 @export var currentState: State
-var states: Dictionary = {}
 
 func _ready() -> void:
-	currentState.Transitioned.connect(onStateTransition)
+	currentState.transitionTo.connect(onStateTransition)
 	currentState.enter()
-	
-	for child in get_children():
-		if child is State:
-			states[child.name.to_lower()] = child
 
 
 func _process(delta: float) -> void:
@@ -23,18 +18,21 @@ func _physics_process(delta: float) -> void:
 		currentState.physicsUpdate(delta)
 
 
-func onStateTransition(newStateName: String):
+func _unhandled_input(event: InputEvent) -> void:
+	if currentState:
+		currentState.handleInput(event)
+
+
+func onStateTransition(newState: State):
 	if !currentState:
 		return
-	
-	var newState = states.get(newStateName.to_lower())
 	
 	if !newState:
 		return
 	
-	currentState.Transitioned.disconnect(onStateTransition)
+	currentState.transitionTo.disconnect(onStateTransition)
 	currentState.exit()
 	
-	newState.Transitioned.connect(onStateTransition)
+	newState.transitionTo.connect(onStateTransition)
 	newState.enter()
 	currentState = newState

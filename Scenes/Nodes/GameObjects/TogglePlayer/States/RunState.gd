@@ -9,11 +9,10 @@ func enter() -> void:
 
 
 func update(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_up") and character.is_on_floor():
-		Transitioned.emit("JumpState")
 	if character.velocity.y > 0:
-		Transitioned.emit("FallState")
+		transitionTo.emit($"../FallState")
 
 
-func physicsUpdate(delta: float) -> void:
-	character.hearInputMoveDirection(delta)
+func handleInput(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_up"):
+		transitionTo.emit($"../JumpState")
