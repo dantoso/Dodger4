@@ -13,7 +13,7 @@ func _ready() -> void:
 	currentHP = maxHP
 
 
-func takeDamage(attack: Attack) -> void:
+func takeAttack(attack: Attack) -> void:
 	currentHP -= attack.damage
 	didTakeDamage.emit(attack)
 

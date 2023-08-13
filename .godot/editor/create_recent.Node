@@ -1,8 +1,8 @@
-Timer
 CollisionShape2D
+HealthComponent
+Timer
 AttackComponent
 Area2D
-HealthComponent
 Camera2D
 JumpState
 RunState

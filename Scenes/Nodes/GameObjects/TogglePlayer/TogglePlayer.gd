@@ -11,7 +11,6 @@ var direction: = 1
 
 func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
-	attackComponent.didAttack.connect(didAttack)
 
 
 func _physics_process(delta: float) -> void:
@@ -37,6 +36,3 @@ func calculateXVelocity(delta: float) -> void:
 	else:
 		velocity.x = newVelocity
 
-
-func didAttack(body: Node2D, attack: Attack) -> void:
-	print("body found!!!! attacking: ", attack.damage)

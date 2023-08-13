@@ -10,19 +10,19 @@ class_name AttackComponent
 @onready var durationTimer: Timer = $DurationTimer
 @onready var delayTimer: Timer = $DelayTimer
 
-signal didAttack(body: Node2D, attack: Attack)
+signal didAttack(attack: Attack)
 
 
 func _ready() -> void:
-	flipMonitoring(false)
+	_flipMonitoring(false)
 	
 	delayTimer.wait_time = delay
-	delayTimer.timeout.connect(attack)
+	delayTimer.timeout.connect(_attack)
 	
 	durationTimer.wait_time = duration
 	durationTimer.timeout.connect(
 		func():
-			flipMonitoring(false)
+			_flipMonitoring(false)
 	)
 
 
@@ -31,16 +31,19 @@ func startAttack() -> void:
 		delayTimer.start()
 
 
-func attack() -> void:
-	flipMonitoring(true)
+func _attack() -> void:
+	_flipMonitoring(true)
 	durationTimer.start()
 
 
-func onBodyEntered(body: Node2D) -> void:
-	didAttack.emit(body, createAttack())
+func _onAreaEntered(node: Area2D) -> void:
+	if node is HealthComponent:
+		var attack: Attack = _createAttack()
+		node.takeAttack(attack)
+		didAttack.emit(attack)
 
 
-func createAttack() -> Attack:
+func _createAttack() -> Attack:
 	var attack = Attack.new()
 	attack.damage = damage
 	attack.stunTime = stunTime
@@ -50,6 +53,6 @@ func createAttack() -> Attack:
 	return attack
 
 
-func flipMonitoring(val: bool) -> void:
+func _flipMonitoring(val: bool) -> void:
 	monitoring = val
 	monitorable = val

@@ -4,3 +4,5 @@ res://Scenes/MainScene.tscn
 res://Scenes/Nodes/Components/AttackComponent/AttackComponent.tscn
 res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd
 res://Scenes/Nodes/Components/AttackComponent/AttackComponent.gd
+res://Scenes/Nodes/Components/HealthComponent.gd
+res://Scenes/Nodes/GameObjects/Enemy/Enemy.gd

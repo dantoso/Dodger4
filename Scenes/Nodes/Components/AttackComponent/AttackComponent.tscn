@@ -11,4 +11,4 @@ one_shot = true
 [node name="DurationTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="." to="." method="onBodyEntered"]
+[connection signal="area_entered" from="." to="." method="_onAreaEntered"]
