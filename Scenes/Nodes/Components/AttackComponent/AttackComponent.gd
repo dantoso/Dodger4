@@ -36,11 +36,14 @@ func _attack() -> void:
 	durationTimer.start()
 
 
-func _onAreaEntered(node: Area2D) -> void:
-	if node is HealthComponent:
-		var attack: Attack = _createAttack()
-		node.takeAttack(attack)
-		didAttack.emit(attack)
+func _onAreaEntered(node: HealthComponent) -> void:
+	if node == null:
+		print("ERROR: attack component receiving non health component contact")
+		return
+	
+	var attack: Attack = _createAttack()
+	node.takeAttack(attack)
+	didAttack.emit(attack)
 
 
 func _createAttack() -> Attack:
