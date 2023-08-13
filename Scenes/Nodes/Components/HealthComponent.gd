@@ -6,8 +6,8 @@ class_name HealthComponent
 
 var currentHP: float
 
-signal didTakeDamage(health: HealthComponent, attack: Attack)
-signal didReceiveHeal(health: HealthComponent, heal: float)
+signal didTakeDamage(attack: Attack)
+signal didReceiveHeal(heal: float)
 
 func _ready() -> void:
 	currentHP = maxHP
@@ -15,9 +15,9 @@ func _ready() -> void:
 
 func takeDamage(attack: Attack) -> void:
 	currentHP -= attack.damage
-	didTakeDamage.emit(self, attack)
+	didTakeDamage.emit(attack)
 
 
 func receiveHeal(heal: float) -> void:
 	currentHP = min(maxHP, currentHP+heal)
-	didReceiveHeal.emit(self, heal)
+	didReceiveHeal.emit(heal)

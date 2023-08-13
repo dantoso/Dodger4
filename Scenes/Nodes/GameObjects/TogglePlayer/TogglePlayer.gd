@@ -7,8 +7,11 @@ const jumpSpeed: = -500.0
 
 var direction: = 1
 
+@onready var attackComponent: AttackComponent = $AttackComponent
+
 func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
+	attackComponent.didAttack.connect(didAttack)
 
 
 func _physics_process(delta: float) -> void:
@@ -18,10 +21,12 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_left"):
+	if event.is_action_pressed("left"):
 		direction = -1
-	elif event.is_action_pressed("ui_right"):
+	elif event.is_action_pressed("right"):
 		direction = 1
+	elif event.is_action_pressed("attack"):
+		attackComponent.startAttack()
 
 
 func calculateXVelocity(delta: float) -> void: 
@@ -31,3 +36,7 @@ func calculateXVelocity(delta: float) -> void:
 		velocity.x = maxSpeed*direction
 	else:
 		velocity.x = newVelocity
+
+
+func didAttack(body: Node2D, attack: Attack) -> void:
+	print("body found!!!! attacking: ", attack.damage)

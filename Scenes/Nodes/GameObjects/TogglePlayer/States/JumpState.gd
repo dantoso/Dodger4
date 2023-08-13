@@ -14,5 +14,5 @@ func update(delta: float) -> void:
 
 
 func handleInput(event: InputEvent) -> void:
-	if event.is_action_released("ui_up"):
+	if event.is_action_released("up"):
 		character.velocity.y = 0

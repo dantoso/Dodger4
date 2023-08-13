@@ -14,5 +14,5 @@ func update(delta: float) -> void:
 
 
 func handleInput(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_up"):
+	if event.is_action_pressed("up"):
 		transitionTo.emit($"../JumpState")
