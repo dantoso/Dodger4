@@ -5,7 +5,7 @@ const maxSpeed: = 200.0
 const acceleration: = 600.0
 const jumpSpeed: = -500.0
 
-var direction: = 1
+var direction: Vector2 = Vector2(1, 1)
 
 @onready var attackComponent: AttackComponent = $AttackComponent
 
@@ -21,18 +21,18 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left"):
-		direction = -1
+		direction.x = -1
 	elif event.is_action_pressed("right"):
-		direction = 1
+		direction.x = 1
 	elif event.is_action_pressed("attack"):
-		attackComponent.startAttack()
+		attackComponent.startAttack(direction)
 
 
 func calculateXVelocity(delta: float) -> void: 
-	var newVelocity = velocity.x + acceleration*direction*delta
+	var newVelocity = velocity.x + acceleration*direction.x*delta
 	
 	if newVelocity > maxSpeed || newVelocity < -maxSpeed:
-		velocity.x = maxSpeed*direction
+		velocity.x = maxSpeed*direction.x
 	else:
 		velocity.x = newVelocity
 

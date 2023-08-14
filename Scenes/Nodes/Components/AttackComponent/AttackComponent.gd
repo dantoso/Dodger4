@@ -7,33 +7,41 @@ class_name AttackComponent
 @export var knockback: float = 0
 @export var stunTime: float = 0
 
+@export var shape: Shape2D
+@export var xOffset: Vector2 = Vector2.ZERO
+
 @onready var durationTimer: Timer = $DurationTimer
 @onready var delayTimer: Timer = $DelayTimer
 
 signal didAttack(attack: Attack)
 
+var collisionChild: CollisionShape2D
+var direction: Vector2
 
 func _ready() -> void:
-	_flipMonitoring(false)
-	
 	delayTimer.wait_time = delay
 	delayTimer.timeout.connect(_attack)
 	
 	durationTimer.wait_time = duration
-	durationTimer.timeout.connect(
-		func():
-			_flipMonitoring(false)
-	)
+	durationTimer.timeout.connect(_endAttack)
+	
+	collisionChild = _createCollision()
 
 
-func startAttack() -> void:
-	if delayTimer.is_stopped():
+func startAttack(direction: Vector2) -> void:
+	if delayTimer.is_stopped() and direction:
+		self.direction = direction
 		delayTimer.start()
 
 
 func _attack() -> void:
-	_flipMonitoring(true)
+	collisionChild.position = xOffset*direction
+	add_child(collisionChild)
 	durationTimer.start()
+
+
+func _endAttack() -> void:
+	remove_child(collisionChild)
 
 
 func _onAreaEntered(node: HealthComponent) -> void:
@@ -56,6 +64,8 @@ func _createAttack() -> Attack:
 	return attack
 
 
-func _flipMonitoring(val: bool) -> void:
-	monitoring = val
-	monitorable = val
+func _createCollision() -> CollisionShape2D:
+	var collision: = CollisionShape2D.new()
+	collision.shape = shape
+	
+	return collision

@@ -13,7 +13,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4xnv"]
 size = Vector2(18, 19)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gm65"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjh2s"]
 size = Vector2(34, 20)
 
 [node name="TogglePlayer" type="CharacterBody2D"]
@@ -59,8 +59,5 @@ debug_color = Color(0, 0.647059, 0.262745, 0.419608)
 [node name="AttackComponent" parent="." instance=ExtResource("7_jbb2u")]
 collision_layer = 8
 collision_mask = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackComponent"]
-position = Vector2(27, 0)
-shape = SubResource("RectangleShape2D_0gm65")
-debug_color = Color(0.858824, 0, 0.882353, 0.419608)
+shape = SubResource("RectangleShape2D_mjh2s")
+xOffset = Vector2(27, 2.08165e-12)
