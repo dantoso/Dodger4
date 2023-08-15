@@ -1,3 +1,6 @@
+DetectorComponent
+ChaseState
+StateMachine
 CollisionShape2D
 HealthComponent
 Timer
@@ -7,7 +10,6 @@ Camera2D
 JumpState
 RunState
 FallState
-StateMachine
 TogglePlayer
 Gravitable
 Enemy

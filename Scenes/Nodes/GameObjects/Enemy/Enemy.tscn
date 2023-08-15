@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcmr40poe7m3r"]
+[gd_scene load_steps=7 format=3 uid="uid://bcmr40poe7m3r"]
 
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/Enemy/Enemy.gd" id="1_ym4ye"]
-[ext_resource type="Script" path="res://Scenes/Nodes/Components/HealthComponent.gd" id="2_iwhwh"]
+[ext_resource type="Script" path="res://Scenes/Nodes/Components/HealthComponent/HealthComponent.gd" id="2_ehjkm"]
+[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/StateMachine/StateMachine.gd" id="3_genrx"]
+[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/Enemy/States/ChaseState.gd" id="4_cberq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gk3o1"]
 
@@ -19,9 +21,16 @@ debug_color = Color(0.976471, 0.14902, 0, 0.419608)
 [node name="HealthComponent" type="Area2D" parent="."]
 collision_layer = 64
 collision_mask = 8
-script = ExtResource("2_iwhwh")
+script = ExtResource("2_ehjkm")
 maxHP = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
 shape = SubResource("RectangleShape2D_dgv8n")
 debug_color = Color(1, 0, 0.129412, 0.419608)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState")]
+script = ExtResource("3_genrx")
+currentState = NodePath("ChaseState")
+
+[node name="ChaseState" type="Node" parent="StateMachine"]
+script = ExtResource("4_cberq")

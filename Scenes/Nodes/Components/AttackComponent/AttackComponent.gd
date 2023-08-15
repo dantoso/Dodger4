@@ -18,6 +18,11 @@ signal didAttack(attack: Attack)
 var collisionChild: CollisionShape2D
 var direction: Vector2
 
+
+func _init() -> void:
+	area_entered.connect(_onAreaEntered)
+
+
 func _ready() -> void:
 	delayTimer.wait_time = delay
 	delayTimer.timeout.connect(_attack)

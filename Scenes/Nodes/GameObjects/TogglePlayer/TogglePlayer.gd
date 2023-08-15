@@ -2,8 +2,8 @@ extends Gravitable
 class_name TogglePlayer
 
 const maxSpeed: = 200.0
-const acceleration: = 600.0
-const jumpSpeed: = -500.0
+const acceleration: = 800.0
+const jumpSpeed: = -600.0
 
 var direction: Vector2 = Vector2(1, 1)
 

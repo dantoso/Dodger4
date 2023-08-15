@@ -13,6 +13,7 @@ func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
 	health.didTakeDamage.connect(tookDamage)
 
+
 func _physics_process(delta: float) -> void:
 	applyGravity(delta)
 	move_and_slide()
