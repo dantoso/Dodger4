@@ -1,13 +1,8 @@
 res://Scenes/Nodes/GameObjects/Enemy/Enemy.tscn
+res://Scenes/Nodes/GameObjects/Enemy/States/ChaseState.gd
+res://Scenes/Nodes/GameObjects/Enemy/Enemy.gd
 res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.tscn
+res://Scenes/Nodes/Shared/SelfMover.gd
+res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd
 res://Scenes/MainScene.tscn
 res://Scenes/Nodes/Components/AttackComponent/AttackComponent.tscn
-res://Scenes/Nodes/Components/DetectorComponent/DetectorComponent.tscn
-res://Scenes/Nodes/Components/HealthComponent/HealthComponent.gd
-res://Scenes/Nodes/Components/DetectorComponent/DetectorComponent.gd
-res://Scenes/Nodes/Shared/Gravitable.gd
-res://Scenes/Nodes/Components/DetectorComponent/TrackerComponent.gd
-res://Scenes/Nodes/Components/TrackerComponent/TrackerComponent.gd
-res://Scenes/Nodes/Components/AttackComponent/AttackComponent.gd
-res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd
-res://Scenes/Nodes/GameObjects/Enemy/Enemy.gd

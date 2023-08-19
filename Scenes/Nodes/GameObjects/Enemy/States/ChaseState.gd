@@ -1,11 +1,19 @@
 extends State
 class_name ChaseState
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@export var enemy: Enemy
+
+func enter() -> void:
+	print("chasing")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func update(delta: float) -> void:
+	var xDirection = enemy.player.global_position.x - enemy.global_position.x
+	if xDirection > 0:
+		enemy.direction.x = 1
+	else:
+		enemy.direction.x = -1
+
+
+func physicsUpdate(delta: float) -> void:
+	enemy.accelerate(delta)

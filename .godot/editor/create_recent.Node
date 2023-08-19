@@ -1,7 +1,7 @@
-DetectorComponent
+CollisionShape2D
+TrackerComponent
 ChaseState
 StateMachine
-CollisionShape2D
 HealthComponent
 Timer
 AttackComponent
