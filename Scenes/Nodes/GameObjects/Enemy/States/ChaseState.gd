@@ -4,8 +4,16 @@ class_name ChaseState
 @export var enemy: Enemy
 @export var tracker: TrackerComponent
 
+func _ready() -> void:
+	tracker.didFind.connect(enterAttackState)
+
+
+func enterAttackState(_node: Node2D) -> void:
+	transitionTo.emit($"../AttackState")
+
+
 func enter() -> void:
-	tracker.start()
+	tracker.start() 
 
 
 func update(_delta: float) -> void:
@@ -23,4 +31,5 @@ func physicsUpdate(delta: float) -> void:
 
 
 func exit() -> void:
+	enemy.velocity = Vector2.ZERO
 	tracker.stop()

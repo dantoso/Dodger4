@@ -16,6 +16,7 @@
 size = Vector2(20, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vo4p"]
+size = Vector2(30, 25)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -38,14 +39,17 @@ shape = SubResource("RectangleShape2D_dgv8n")
 debug_color = Color(1, 0, 0.129412, 0.419608)
 
 [node name="AttackComponent" parent="." instance=ExtResource("3_5gvmm")]
+collision_layer = 32
+collision_mask = 16
 delay = 1.0
 shape = SubResource("RectangleShape2D_ijsqo")
 xOffset = Vector2(20, -2.5)
 
 [node name="TrackerComponent" type="Area2D" parent="."]
+collision_layer = 0
 script = ExtResource("4_50uj7")
 shape = SubResource("RectangleShape2D_6vo4p")
-offset = Vector2(20, 2.08165e-12)
+offset = Vector2(25, -2.5)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState")]
 script = ExtResource("3_genrx")
@@ -59,4 +63,4 @@ tracker = NodePath("../../TrackerComponent")
 [node name="AttackState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "attackComponent")]
 script = ExtResource("6_5g77r")
 character = NodePath("../..")
-attackComponent = NodePath("")
+attackComponent = NodePath("../../AttackComponent")

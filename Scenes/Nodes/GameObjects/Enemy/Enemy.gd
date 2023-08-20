@@ -1,11 +1,19 @@
 extends SelfMover
 class_name Enemy
 
-@onready var health: HealthComponent = $HealthComponent
 @export var player: TogglePlayer
+
+@onready var health: HealthComponent = $HealthComponent
 
 func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
+	
+	var attackState: AttackState = $StateMachine/AttackState
+	attackState.exitingAttackState.connect(
+		func ():
+			attackState.transitionTo.emit($StateMachine/ChaseState)
+	)
+	
 	health.didTakeDamage.connect(tookDamage)
 
 

@@ -6,6 +6,7 @@ class_name AttackState
 
 signal exitingAttackState()
 
+
 func enter() -> void:
 	attackComponent.startAttack(character.direction)
 	attackComponent.didFinishAttack.connect(exitState)
