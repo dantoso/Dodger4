@@ -13,7 +13,8 @@ class_name AttackComponent
 @onready var durationTimer: Timer = $DurationTimer
 @onready var delayTimer: Timer = $DelayTimer
 
-signal didAttack(attack: Attack)
+signal didHit(attack: Attack)
+signal didFinishAttack()
 
 var collisionChild: CollisionShape2D
 var direction: Vector2
@@ -47,6 +48,7 @@ func _attack() -> void:
 
 func _endAttack() -> void:
 	remove_child(collisionChild)
+	didFinishAttack.emit()
 
 
 func _onAreaEntered(node: HealthComponent) -> void:
@@ -56,7 +58,7 @@ func _onAreaEntered(node: HealthComponent) -> void:
 	
 	var attack: Attack = _createAttack()
 	node.takeAttack(attack)
-	didAttack.emit(attack)
+	didHit.emit(attack)
 
 
 func _createAttack() -> Attack:
