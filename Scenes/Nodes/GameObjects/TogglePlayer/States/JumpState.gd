@@ -8,7 +8,7 @@ func enter() -> void:
 	character.velocity.y = character.jumpSpeed
 
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	if character.velocity.y >= 0:
 		transitionTo.emit($"../FallState")
 

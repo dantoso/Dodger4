@@ -34,9 +34,9 @@ func _ready() -> void:
 	collisionChild = _createCollision()
 
 
-func startAttack(direction: Vector2) -> void:
-	if delayTimer.is_stopped() and direction:
-		self.direction = direction
+func startAttack(atkDirection: Vector2) -> void:
+	if delayTimer.is_stopped() and atkDirection:
+		direction = atkDirection
 		delayTimer.start()
 
 

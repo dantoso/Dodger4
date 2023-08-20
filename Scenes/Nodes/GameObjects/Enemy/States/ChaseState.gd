@@ -7,7 +7,7 @@ func enter() -> void:
 	print("chasing")
 
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	var xDirection = enemy.player.global_position.x - enemy.global_position.x
 	if xDirection > 0:
 		enemy.direction.x = 1
