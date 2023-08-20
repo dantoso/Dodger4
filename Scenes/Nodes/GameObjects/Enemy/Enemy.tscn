@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcmr40poe7m3r"]
+[gd_scene load_steps=12 format=3 uid="uid://bcmr40poe7m3r"]
 
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/Enemy/Enemy.gd" id="1_ym4ye"]
 [ext_resource type="Script" path="res://Scenes/Nodes/Components/HealthComponent/HealthComponent.gd" id="2_ehjkm"]
 [ext_resource type="PackedScene" uid="uid://bncn6jtt3jtao" path="res://Scenes/Nodes/Components/AttackComponent/AttackComponent.tscn" id="3_5gvmm"]
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/StateMachine/StateMachine.gd" id="3_genrx"]
+[ext_resource type="Script" path="res://Scenes/Nodes/Components/TrackerComponent/TrackerComponent.gd" id="4_50uj7"]
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/Enemy/States/ChaseState.gd" id="4_cberq"]
 [ext_resource type="Script" path="res://Scenes/Nodes/Shared/SharedStates/AttackState.gd" id="6_5g77r"]
 
@@ -13,6 +14,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijsqo"]
 size = Vector2(20, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vo4p"]
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -39,13 +42,19 @@ delay = 1.0
 shape = SubResource("RectangleShape2D_ijsqo")
 xOffset = Vector2(20, -2.5)
 
+[node name="TrackerComponent" type="Area2D" parent="."]
+script = ExtResource("4_50uj7")
+shape = SubResource("RectangleShape2D_6vo4p")
+offset = Vector2(20, 2.08165e-12)
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState")]
 script = ExtResource("3_genrx")
 currentState = NodePath("ChaseState")
 
-[node name="ChaseState" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+[node name="ChaseState" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "tracker")]
 script = ExtResource("4_cberq")
 enemy = NodePath("../..")
+tracker = NodePath("../../TrackerComponent")
 
 [node name="AttackState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "attackComponent")]
 script = ExtResource("6_5g77r")

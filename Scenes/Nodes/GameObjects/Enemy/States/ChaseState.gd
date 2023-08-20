@@ -2,9 +2,10 @@ extends State
 class_name ChaseState
 
 @export var enemy: Enemy
+@export var tracker: TrackerComponent
 
 func enter() -> void:
-	print("chasing")
+	tracker.start()
 
 
 func update(_delta: float) -> void:
@@ -13,7 +14,13 @@ func update(_delta: float) -> void:
 		enemy.direction.x = 1
 	else:
 		enemy.direction.x = -1
+		
+	tracker.collisionBox.position = tracker.offset * enemy.direction
 
 
 func physicsUpdate(delta: float) -> void:
 	enemy.accelerate(delta)
+
+
+func exit() -> void:
+	tracker.stop()
