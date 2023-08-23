@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b610m0iopqdek"]
+[gd_scene load_steps=12 format=3 uid="uid://b610m0iopqdek"]
 
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd" id="1_5nv1w"]
 [ext_resource type="Script" path="res://Scenes/Nodes/Components/HealthComponent/HealthComponent.gd" id="2_3f6j6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/States/RunState.gd" id="4_g1co2"]
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/States/JumpState.gd" id="5_f4bua"]
 [ext_resource type="PackedScene" uid="uid://bncn6jtt3jtao" path="res://Scenes/Nodes/Components/AttackComponent/AttackComponent.tscn" id="7_jbb2u"]
+[ext_resource type="Script" path="res://Scenes/Nodes/Shared/SharedStates/AttackState.gd" id="8_nok5l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4xnv"]
 size = Vector2(18, 19)
@@ -34,7 +35,7 @@ debug_color = Color(0, 0.647059, 0.262745, 0.419608)
 collision_layer = 8
 collision_mask = 64
 shape = SubResource("RectangleShape2D_mjh2s")
-xOffset = Vector2(27, 2.08165e-12)
+offset = Vector2(27, 2.08165e-12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tljcx")
@@ -54,6 +55,11 @@ character = NodePath("../..")
 [node name="JumpState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
 script = ExtResource("5_f4bua")
 character = NodePath("../..")
+
+[node name="AttackState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "attackComponent")]
+script = ExtResource("8_nok5l")
+character = NodePath("../..")
+attackComponent = NodePath("../../AttackComponent")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(2.08165e-12, -50)

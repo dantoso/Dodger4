@@ -8,7 +8,7 @@ class_name AttackComponent
 @export var stunTime: float = 0
 
 @export var shape: Shape2D
-@export var xOffset: Vector2 = Vector2.ZERO
+@export var offset: Vector2 = Vector2.ZERO
 
 @onready var durationTimer: Timer = $DurationTimer
 @onready var delayTimer: Timer = $DelayTimer
@@ -41,7 +41,7 @@ func startAttack(atkDirection: Vector2) -> void:
 
 
 func _attack() -> void:
-	collisionChild.position = xOffset*direction
+	collisionChild.position = offset*direction
 	add_child(collisionChild)
 	durationTimer.start()
 

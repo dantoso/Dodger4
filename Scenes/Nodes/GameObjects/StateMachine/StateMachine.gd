@@ -4,7 +4,7 @@ class_name StateMachine
 @export var currentState: State
 
 func _ready() -> void:
-	currentState.transitionTo.connect(onStateTransition)
+	currentState.transitionTo.connect(transitionTo)
 	currentState.enter()
 
 
@@ -23,16 +23,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		currentState.handleInput(event)
 
 
-func onStateTransition(newState: State):
+func transitionTo(newState: State):
+	if currentState == newState:
+		return
+	
 	if !currentState:
 		return
 	
 	if !newState:
 		return
 	
-	currentState.transitionTo.disconnect(onStateTransition)
+	currentState.transitionTo.disconnect(transitionTo)
 	currentState.exit()
 	
-	newState.transitionTo.connect(onStateTransition)
+	newState.transitionTo.connect(transitionTo)
 	newState.enter()
 	currentState = newState
