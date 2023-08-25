@@ -1,9 +1,12 @@
 extends Node
 class_name StateMachine
 
-@export var currentState: State
+var currentState: State
+@export var defaultFloorState: State
+@export var defaultAirState: State
 
 func _ready() -> void:
+	currentState = defaultAirState
 	currentState.transitionTo.connect(transitionTo)
 	currentState.enter()
 
@@ -21,6 +24,15 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if currentState:
 		currentState.handleInput(event)
+
+
+func transitionToDefault() -> void:
+	var parent = get_parent()
+	if parent is SelfMover:
+		if parent.is_on_floor():
+			transitionTo(defaultFloorState)
+		else:
+			transitionTo(defaultAirState)
 
 
 func transitionTo(newState: State):

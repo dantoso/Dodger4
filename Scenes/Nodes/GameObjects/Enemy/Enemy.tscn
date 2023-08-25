@@ -51,9 +51,10 @@ script = ExtResource("4_50uj7")
 shape = SubResource("RectangleShape2D_6vo4p")
 offset = Vector2(25, -2.5)
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState")]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("defaultFloorState", "defaultAirState")]
 script = ExtResource("3_genrx")
-currentState = NodePath("ChaseState")
+defaultFloorState = NodePath("ChaseState")
+defaultAirState = NodePath("ChaseState")
 
 [node name="ChaseState" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy", "tracker")]
 script = ExtResource("4_cberq")

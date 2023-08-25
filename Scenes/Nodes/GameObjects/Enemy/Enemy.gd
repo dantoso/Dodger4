@@ -7,13 +7,6 @@ class_name Enemy
 
 func _ready() -> void:
 	motion_mode = CharacterBody2D.MOTION_MODE_GROUNDED
-	
-	var attackState: AttackState = $StateMachine/AttackState
-	attackState.exitingAttackState.connect(
-		func ():
-			attackState.transitionTo.emit($StateMachine/ChaseState)
-	)
-	
 	health.didTakeDamage.connect(tookDamage)
 
 

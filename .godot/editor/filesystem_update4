@@ -1,6 +1,7 @@
 res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.tscn
 res://Scenes/Nodes/GameObjects/StateMachine/StateMachine.gd
-res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd
 res://Scenes/Nodes/GameObjects/Enemy/Enemy.tscn
+res://Scenes/Nodes/Shared/SharedStates/AttackState.gd
+res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd
 res://Scenes/MainScene.tscn
-res://Scenes/Nodes/Components/AttackComponent/AttackComponent.gd
+res://Scenes/Nodes/GameObjects/Enemy/Enemy.gd

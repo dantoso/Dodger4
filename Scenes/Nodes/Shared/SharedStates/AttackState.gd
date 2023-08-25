@@ -4,8 +4,6 @@ class_name AttackState
 @export var character: SelfMover
 @export var attackComponent: AttackComponent
 
-signal exitingAttackState()
-
 func _ready() -> void:
 	attackComponent.didFinishAttack.connect(exitState)
 
@@ -15,4 +13,6 @@ func enter() -> void:
 
 
 func exitState() -> void:
-	exitingAttackState.emit()
+	var parent = get_parent()
+	if parent is StateMachine:
+		parent.transitionToDefault()
