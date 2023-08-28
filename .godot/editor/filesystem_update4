@@ -1,7 +1,8 @@
+res://Scenes/Nodes/Components/AttackComponent/AttackComponent.tscn
+res://Scenes/Nodes/Components/AttackComponent/MeleeComponent.gd
 res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.tscn
-res://Scenes/Nodes/GameObjects/StateMachine/StateMachine.gd
-res://Scenes/Nodes/GameObjects/Enemy/Enemy.tscn
-res://Scenes/Nodes/Shared/SharedStates/AttackState.gd
 res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd
+res://Scenes/Nodes/GameObjects/Enemy/Enemy.tscn
 res://Scenes/MainScene.tscn
-res://Scenes/Nodes/GameObjects/Enemy/Enemy.gd
+res://Scenes/Nodes/Shared/SharedStates/AttackState.gd
+res://Scenes/Nodes/Components/MeleeComponent/MeleeComponent.tscn

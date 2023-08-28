@@ -1,5 +1,5 @@
 extends Area2D
-class_name AttackComponent
+class_name MeleeComponent
 
 @export var damage: float = 1
 @export var delay: float = 0.2

@@ -1,7 +1,6 @@
 extends SelfMover
 class_name TogglePlayer
 
-@onready var attackComponent: AttackComponent = $AttackComponent
 @onready var stateMachine: StateMachine = $StateMachine
 
 var stateBeforeAtk: State

@@ -2,14 +2,14 @@ extends State
 class_name AttackState
 
 @export var character: SelfMover
-@export var attackComponent: AttackComponent
+@export var meleeComponent: MeleeComponent
 
 func _ready() -> void:
-	attackComponent.didFinishAttack.connect(exitState)
+	meleeComponent.didFinishAttack.connect(exitState)
 
 
 func enter() -> void:
-	attackComponent.startAttack(character.direction)
+	meleeComponent.startAttack(character.direction)
 
 
 func exitState() -> void:
