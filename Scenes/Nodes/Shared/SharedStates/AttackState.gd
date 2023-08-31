@@ -9,7 +9,7 @@ func _ready() -> void:
 
 
 func enter() -> void:
-	meleeComponent.startAttack(character.direction)
+	meleeComponent.startAttack()
 
 
 func exitState() -> void:

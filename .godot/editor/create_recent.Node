@@ -1,7 +1,6 @@
+CollisionShape2D
 AttackState
 TrackerComponent
-AttackComponent
-CollisionShape2D
 ChaseState
 StateMachine
 HealthComponent

@@ -21,5 +21,4 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("right"):
 		direction.x = 1
 	elif event.is_action_pressed("attack"):
-		stateBeforeAtk = stateMachine.currentState
 		stateMachine.transitionTo($StateMachine/AttackState)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b610m0iopqdek"]
+[gd_scene load_steps=13 format=3 uid="uid://b610m0iopqdek"]
 
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd" id="1_5nv1w"]
 [ext_resource type="Script" path="res://Scenes/Nodes/Components/HealthComponent/HealthComponent.gd" id="2_3f6j6"]
@@ -9,17 +9,24 @@
 [ext_resource type="PackedScene" uid="uid://bncn6jtt3jtao" path="res://Scenes/Nodes/Components/MeleeComponent/MeleeComponent.tscn" id="7_jbb2u"]
 [ext_resource type="Script" path="res://Scenes/Nodes/Shared/SharedStates/AttackState.gd" id="8_nok5l"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tljcx"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4xnv"]
 size = Vector2(18, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gj66"]
 size = Vector2(34, 25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tljcx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr1ym"]
+size = Vector2(30, 24)
 
 [node name="TogglePlayer" type="CharacterBody2D"]
 collision_mask = 6
 script = ExtResource("1_5nv1w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tljcx")
+debug_color = Color(0, 0.607843, 0.658824, 0.419608)
 
 [node name="HealthComponent" type="Area2D" parent="."]
 collision_layer = 16
@@ -35,10 +42,10 @@ debug_color = Color(0, 0.647059, 0.262745, 0.419608)
 collision_layer = 0
 collision_mask = 64
 shape = SubResource("RectangleShape2D_4gj66")
-offset = Vector2(27, 2.08165e-12)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_tljcx")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeComponent"]
+position = Vector2(25, 0)
+shape = SubResource("RectangleShape2D_cr1ym")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("defaultFloorState", "defaultAirState")]
 script = ExtResource("2_c3qpt")
