@@ -1,9 +1,7 @@
-extends Area2D
+extends CollisionSpawner
 class_name DamageDealer
 
 @export var damage: float = 1
-@export var delay: float = 0.2
-@export var duration: float = 0.1
 @export var knockback: float = 0
 @export var stunTime: float = 0
 

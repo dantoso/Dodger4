@@ -1,22 +1,18 @@
 extends DamageDealer
 class_name MeleeComponent
 
-@export var shape: Shape2D
+@export var delay: float = 0.2
+@export var duration: float = 0.1
 
 @onready var durationTimer: Timer = $DurationTimer
 @onready var delayTimer: Timer = $DelayTimer
 @onready var parent: Node2D = get_parent()
 
-@onready var collisionChild: CollisionShape2D = $CollisionShape2D
-var initialPosition: Vector2
 var characterDirection: Vector2
-var atkDirection: Vector2
-
+var atkDirection: Vector2 = Vector2(1,0)
 
 func _ready() -> void:
-	initialPosition = collisionChild.position
-	remove_child(collisionChild)
-	
+	_setupColliders()
 	delayTimer.wait_time = delay
 	delayTimer.timeout.connect(_attack)
 	
@@ -38,12 +34,10 @@ func startAttack() -> void:
 
 
 func _attack() -> void:
-	collisionChild.position.x = atkDirection.x*initialPosition.x
-	collisionChild.position.y = atkDirection.y*initialPosition.x
-	add_child(collisionChild)
+	_spawnColliders(atkDirection)
 	durationTimer.start()
 
 
 func _endAttack() -> void:
-	remove_child(collisionChild)
+	_unspawnColliders()
 	didFinishAttack.emit()
