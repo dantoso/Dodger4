@@ -13,6 +13,7 @@ func setDirection(newValue: Vector2) -> void:
 	direction = newValue
 	didChangeDirectionTo.emit(newValue)
 
+
 func accelerate(delta: float) -> void: 
 	var newVelocity = velocity.x + acceleration*direction.x*delta
 	

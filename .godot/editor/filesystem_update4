@@ -6,3 +6,5 @@ res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.tscn
 res://Scenes/Nodes/Shared/CollisionSpawner.gd
 res://Scenes/Nodes/Shared/DamageDealer.gd
 res://Scenes/Nodes/Components/TrackerComponent/TrackerComponent.gd
+res://Scenes/Nodes/Shared/SelfMover.gd
+res://Scenes/Nodes/GameObjects/Enemy/States/ChaseState.gd

@@ -19,7 +19,7 @@ func _ready() -> void:
 	durationTimer.wait_time = duration
 	durationTimer.timeout.connect(_endAttack)
 	
-	if parent is SelfMover:
+	if parent.has_signal("didChangeDirectionTo"):
 		parent.didChangeDirectionTo.connect(
 			func(newValue: Vector2):
 				characterDirection = newValue

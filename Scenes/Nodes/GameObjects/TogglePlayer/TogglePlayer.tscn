@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b610m0iopqdek"]
+[gd_scene load_steps=12 format=3 uid="uid://b610m0iopqdek"]
 
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd" id="1_5nv1w"]
 [ext_resource type="Script" path="res://Scenes/Nodes/Components/HealthComponent/HealthComponent.gd" id="2_3f6j6"]
@@ -13,9 +13,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4xnv"]
 size = Vector2(18, 19)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gj66"]
-size = Vector2(34, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr1ym"]
 size = Vector2(30, 24)
@@ -41,12 +38,6 @@ debug_color = Color(0, 0.647059, 0.262745, 0.419608)
 [node name="MeleeComponent" parent="." instance=ExtResource("7_jbb2u")]
 collision_layer = 0
 collision_mask = 64
-shape = SubResource("RectangleShape2D_4gj66")
-damage = null
-delay = null
-duration = null
-knockback = null
-stunTime = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeComponent"]
 position = Vector2(25, 0)

@@ -1,29 +1,34 @@
-extends Area2D
+extends CollisionSpawner
 class_name TrackerComponent
-
-@export var shape: Shape2D
-@export var offset: Vector2 = Vector2.ZERO
 
 var foundBody: Node2D
 var lastLocation: Vector2
-var collisionBox: CollisionShape2D
+
+var direction: = Vector2(1,0)
 
 signal didFind(body: Node2D)
 signal didLose(body: Node2D)
 
 func _ready() -> void:
+	_setupColliders()
 	body_entered.connect(_onBodyEnter)
 	body_exited.connect(_onBodyExit)
-	collisionBox = _createCollision()
+	
+	var parent = get_parent()
+	if parent.has_signal("didChangeDirectionTo"):
+		parent.didChangeDirectionTo.connect(
+			func(newValue: Vector2):
+				direction = newValue
+				_setCollidersPositions(newValue)
+		)
 
 
 func start() -> void:
-	collisionBox.position += offset
-	add_child(collisionBox)
+	_spawnColliders(direction)
 
 
 func stop() -> void:
-	remove_child(collisionBox)
+	_unspawnColliders()
 
 
 func _onBodyEnter(body: Node2D) -> void:
@@ -41,10 +46,3 @@ func _onBodyExit(body: Node2D) -> void:
 func _process(_delta: float) -> void:
 	if foundBody:
 		lastLocation = foundBody.global_position
-
-
-func _createCollision() -> CollisionShape2D:
-	var collision = CollisionShape2D.new()
-	collision.shape = shape
-	
-	return collision
