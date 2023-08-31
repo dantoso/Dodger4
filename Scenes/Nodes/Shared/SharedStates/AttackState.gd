@@ -9,6 +9,7 @@ func _ready() -> void:
 
 
 func enter() -> void:
+	character.velocity.x = 0
 	meleeComponent.startAttack()
 
 

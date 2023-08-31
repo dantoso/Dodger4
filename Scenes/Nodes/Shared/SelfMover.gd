@@ -2,7 +2,7 @@ extends Gravitable
 class_name SelfMover
 
 @export var maxSpeed: = 200.0
-@export var acceleration: = 800.0
+@export var acceleration: = 1000.0
 @export var jumpSpeed: = -600.0
 
 @export var direction: Vector2 = Vector2(1, 0) : set = setDirection

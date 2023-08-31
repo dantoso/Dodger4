@@ -4,3 +4,7 @@ res://Scenes/Nodes/Components/MeleeComponent/MeleeComponent.tscn
 res://Scenes/Nodes/GameObjects/Enemy/Enemy.tscn
 res://Scenes/Nodes/Components/MeleeComponent/MeleeComponent.gd
 res://Scenes/Nodes/Shared/SharedStates/AttackState.gd
+res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd
+res://Scenes/Nodes/GameObjects/TogglePlayer/States/FallState.gd
+res://Scenes/Nodes/GameObjects/TogglePlayer/States/RunState.gd
+res://Scenes/Nodes/GameObjects/TogglePlayer/States/JumpState.gd

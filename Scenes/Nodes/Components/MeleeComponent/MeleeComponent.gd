@@ -9,7 +9,8 @@ class_name MeleeComponent
 
 @onready var collisionChild: CollisionShape2D = $CollisionShape2D
 var initialPosition: Vector2
-var direction: Vector2
+var characterDirection: Vector2
+var atkDirection: Vector2
 
 
 func _ready() -> void:
@@ -25,19 +26,20 @@ func _ready() -> void:
 	if parent is SelfMover:
 		parent.didChangeDirectionTo.connect(
 			func(newValue: Vector2):
-				direction = newValue
+				characterDirection = newValue
 		)
 
 
 func startAttack() -> void:
 	if delayTimer.is_stopped():
+		if characterDirection != Vector2.ZERO:
+			atkDirection = characterDirection
 		delayTimer.start()
 
 
 func _attack() -> void:
-	if direction != Vector2.ZERO:
-		collisionChild.position.x = direction.x*initialPosition.x
-		collisionChild.position.y = direction.y*initialPosition.x
+	collisionChild.position.x = atkDirection.x*initialPosition.x
+	collisionChild.position.y = atkDirection.y*initialPosition.x
 	add_child(collisionChild)
 	durationTimer.start()
 

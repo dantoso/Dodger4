@@ -13,6 +13,10 @@ func update(_delta: float) -> void:
 		transitionTo.emit($"../FallState")
 
 
+func physicsUpdate(delta: float) -> void:
+	character.accelerate(delta)
+
+
 func handleInput(event: InputEvent) -> void:
 	if event.is_action_released("up"):
 		character.velocity.y = 0

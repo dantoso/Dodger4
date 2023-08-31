@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	applyGravity(delta)
-	accelerate(delta)
 	move_and_slide()
 
 
