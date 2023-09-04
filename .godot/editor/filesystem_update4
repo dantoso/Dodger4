@@ -4,3 +4,4 @@ res://Scenes/Nodes/Components/ShotComponent/Shot.gd
 res://Scenes/Nodes/Components/MeleeComponent/MeleeComponent.tscn
 res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.tscn
 res://Scenes/Nodes/Components/ShotComponent/ShotComponent.tscn
+res://Scenes/Nodes/GameObjects/TogglePlayer/States/ShootState.gd

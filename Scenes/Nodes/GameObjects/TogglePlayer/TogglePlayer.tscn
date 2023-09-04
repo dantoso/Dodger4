@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b610m0iopqdek"]
+[gd_scene load_steps=16 format=3 uid="uid://b610m0iopqdek"]
 
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.gd" id="1_5nv1w"]
 [ext_resource type="Script" path="res://Scenes/Nodes/Components/HealthComponent/HealthComponent.gd" id="2_3f6j6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/States/JumpState.gd" id="5_f4bua"]
 [ext_resource type="PackedScene" uid="uid://bncn6jtt3jtao" path="res://Scenes/Nodes/Components/MeleeComponent/MeleeComponent.tscn" id="7_jbb2u"]
 [ext_resource type="Script" path="res://Scenes/Nodes/Shared/SharedStates/AttackState.gd" id="8_nok5l"]
+[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/TogglePlayer/States/ShootState.gd" id="11_upeea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tljcx"]
 
@@ -78,6 +79,10 @@ character = NodePath("../..")
 script = ExtResource("8_nok5l")
 character = NodePath("../..")
 meleeComponent = NodePath("../../MeleeComponent")
+
+[node name="ShootSate" type="Node" parent="StateMachine" node_paths=PackedStringArray("shotComponent")]
+script = ExtResource("11_upeea")
+shotComponent = NodePath("../../ShotComponent")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(2.08165e-12, -50)
