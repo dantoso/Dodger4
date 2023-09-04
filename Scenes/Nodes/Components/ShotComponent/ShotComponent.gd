@@ -30,6 +30,15 @@ func shoot() -> void:
 
 func _spawnShot() -> void:
 	var world = get_tree().root.get_child(0)
-	world.add_child(shot)
-	shot.spawn(direction)
+	
+	var clone = shot.duplicate()
+	var shotCollider: = shot.colliders[0]
+	var collider: = ColliderData.new(shotCollider.box.duplicate(), shotCollider.initialPosition)
+	clone.colliders.clear()
+	clone.colliders.append(collider)
+	
+	clone.global_position = global_position
+	world.add_child(clone)
+	clone.spawn(direction)
+	
 	didShoot.emit()

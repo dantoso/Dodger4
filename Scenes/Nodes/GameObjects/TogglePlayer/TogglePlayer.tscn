@@ -51,6 +51,8 @@ shape = SubResource("RectangleShape2D_cr1ym")
 [node name="ShotComponent" parent="." instance=ExtResource("4_2785l")]
 
 [node name="Shot" type="Area2D" parent="ShotComponent"]
+collision_layer = 0
+collision_mask = 64
 script = ExtResource("5_aib6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShotComponent/Shot"]

@@ -20,4 +20,5 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("right"):
 		direction.x = 1
 	elif event.is_action_pressed("attack"):
-		stateMachine.transitionTo($StateMachine/AttackState)
+#		stateMachine.transitionTo($StateMachine/AttackState)
+		stateMachine.transitionTo($StateMachine/ShootSate)
