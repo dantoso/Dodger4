@@ -1,10 +1,11 @@
+Timer
+ShotComponent
 CollisionShape2D
 AttackState
 TrackerComponent
 ChaseState
 StateMachine
 HealthComponent
-Timer
 Area2D
 Camera2D
 JumpState

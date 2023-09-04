@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxvs0anooww4a"]
+
+[ext_resource type="Script" path="res://Scenes/Nodes/Components/ShotComponent/ShotComponent.gd" id="1_ioare"]
+
+[node name="ShotComponent" type="Node2D"]
+script = ExtResource("1_ioare")
+
+[node name="DelayTimer" type="Timer" parent="."]
+one_shot = true
