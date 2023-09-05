@@ -1,7 +1,7 @@
 extends DamageDealer
 class_name Shot
 
-@export var speed: float = 250
+@export var speed: float = 400
 var direction: = Vector2.ZERO
 
 func _ready() -> void:
