@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw2b6b73vr3gb"]
+
+[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/FlyigngEnemy/FlyingEnemy.gd" id="1_bw0gu"]
+[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/StateMachine/StateMachine.gd" id="2_llv8c"]
+[ext_resource type="Script" path="res://Scenes/Nodes/GameObjects/FlyigngEnemy/States/FlyState.gd" id="3_uldyu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eug0r"]
+size = Vector2(22, 18)
+
+[node name="FlyingEnemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_bw0gu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eug0r")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("defaultFloorState", "defaultAirState")]
+script = ExtResource("2_llv8c")
+defaultFloorState = NodePath("FlyState")
+defaultAirState = NodePath("FlyState")
+
+[node name="FlyState" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("3_uldyu")
+character = NodePath("../..")

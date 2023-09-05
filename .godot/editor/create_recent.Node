@@ -1,12 +1,16 @@
-ShootSate
+State
+Node
+StateMachine
 CollisionShape2D
+SelfMover
+CharacterBody2D
+ShootSate
 Area2D
 ShotComponent
 Timer
 AttackState
 TrackerComponent
 ChaseState
-StateMachine
 HealthComponent
 Camera2D
 JumpState
@@ -15,7 +19,4 @@ FallState
 TogglePlayer
 Gravitable
 Enemy
-CharacterBody2D
-Node
-State
 TileMap

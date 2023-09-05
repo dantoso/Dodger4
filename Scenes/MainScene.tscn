@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx7mnno2gfble"]
+[gd_scene load_steps=7 format=3 uid="uid://cx7mnno2gfble"]
 
 [ext_resource type="PackedScene" uid="uid://b610m0iopqdek" path="res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.tscn" id="1_roro1"]
 [ext_resource type="Texture2D" uid="uid://b7u683xskn302" path="res://Tiles/Assets/Assets.png" id="2_txhn6"]
 [ext_resource type="PackedScene" uid="uid://bcmr40poe7m3r" path="res://Scenes/Nodes/GameObjects/Enemy/Enemy.tscn" id="3_qmvsh"]
+[ext_resource type="PackedScene" uid="uid://dw2b6b73vr3gb" path="res://Scenes/Nodes/GameObjects/FlyigngEnemy/FlyingEnemy.tscn" id="4_3bwwp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g54xj"]
 texture = ExtResource("2_txhn6")
@@ -1038,3 +1039,6 @@ player = NodePath("../TogglePlayer")
 
 [node name="TogglePlayer" parent="." instance=ExtResource("1_roro1")]
 position = Vector2(152, 120)
+
+[node name="FlyingEnemy" parent="." instance=ExtResource("4_3bwwp")]
+position = Vector2(481, 120)

@@ -1,6 +1,9 @@
-res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.tscn
+res://Scenes/Nodes/GameObjects/FlyigngEnemy/FlyingEnemy.tscn
+res://Scenes/Nodes/GameObjects/FlyigngEnemy/FlyingEnemy.gd
+res://Scenes/Nodes/GameObjects/FlyigngEnemy/FlyState.gd
+res://Scenes/MainScene.tscn
 res://Scenes/Nodes/GameObjects/Enemy/Enemy.tscn
+res://Scenes/Nodes/GameObjects/TogglePlayer/TogglePlayer.tscn
 res://Scenes/Nodes/Components/MeleeComponent/MeleeComponent.tscn
 res://Scenes/Nodes/Components/ShotComponent/ShotComponent.tscn
-res://Scenes/Nodes/Components/ShotComponent/ShotComponent.gd
-res://Scenes/Nodes/Components/ShotComponent/Shot.gd
+res://Scenes/Nodes/GameObjects/FlyigngEnemy/States/FlyState.gd
